@@ -1,0 +1,37 @@
+# Creating objects of all identified classes
+customer = Customer("Sarah Johnson", "sarah.johnson@example.com", "sarah.johnson@example.com", "45 Knowledge Avenue, Dubai, UAE")
+
+delivery_order = DeliveryOrder("DEL123456789", "DN-2025-001", "January 25, 2025", "Courier", "Pending")
+
+package1 = Package("ITM001", "Wireless Keyboard", 1, 100.00, 100.00)
+package2 = Package("ITM002", "Wireless Mouse & Pad Set", 1, 75.00, 75.00)
+package3 = Package("ITM003", "Laptop Cooling Pad", 1, 120.00, 120.00)
+package4 = Package("ITM004", "Camera Lock", 3, 15.00, 45.00)
+
+package_details = [package1, package2, package3, package4]
+
+delivery_note = DeliveryNote(customer, delivery_order, package_details, 283.50)
+
+# Displaying the delivery note information
+def display_delivery_note():
+    print("Delivery Note")
+    print("Recipient Details:")
+    print(f"Name: {customer._Customer__name}")
+    print(f"Contact: {customer._Customer__contact}")
+    print(f"Delivery Address: {customer._Customer__address}\n")
+    
+    print("Delivery Information:")
+    print(f"Order Number: {delivery_order._DeliveryOrder__order_number}")
+    print(f"Reference Number: {delivery_order._DeliveryOrder__reference_number}")
+    print(f"Delivery Date: {delivery_order._delivery_date}")
+    print(f"Delivery Method: {delivery_order._delivery_method}")
+    print(f"Total Weight: 7 kg\n")
+    
+    print("Summary of Items Delivered:")
+    for package in package_details:
+        print(f"{package._Package__item_code} - {package._Package__description}: {package._quantity} unit(s) @ {package._unit_price} AED each, Total: {package._Package__total_price} AED")
+    
+    print("\nTotal Charges: AED", delivery_note._DeliveryNote__total_charges)
+
+# Call the function to display the note
+display_delivery_note()
